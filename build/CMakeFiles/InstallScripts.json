@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/Programming/C++/SnackProject/build/cmake_install.cmake",
+		"E:/Programming/C++/SnackProject/build/src/cmake_install.cmake",
+		"E:/Programming/C++/SnackProject/build/src/Window/cmake_install.cmake",
+		"E:/Programming/C++/SnackProject/build/src/PutImage/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

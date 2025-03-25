@@ -1,0 +1,105 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"implicit" : {},
+				"path" : "E:/GCC_CMake/TDM-GCC/bin/gcc.exe"
+			},
+			"language" : "C"
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"E:/GCC_CMake/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++",
+						"E:/GCC_CMake/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/x86_64-w64-mingw32",
+						"E:/GCC_CMake/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/backward",
+						"E:/GCC_CMake/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include",
+						"E:/GCC_CMake/TDM-GCC/include",
+						"E:/GCC_CMake/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include-fixed",
+						"E:/GCC_CMake/TDM-GCC/x86_64-w64-mingw32/include"
+					],
+					"linkDirectories" : 
+					[
+						"E:/GCC_CMake/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0",
+						"E:/GCC_CMake/TDM-GCC/lib/gcc",
+						"E:/GCC_CMake/TDM-GCC/x86_64-w64-mingw32/lib",
+						"E:/GCC_CMake/TDM-GCC/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"E:/GCC_CMake/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/libstdc++.a",
+						"mingw32",
+						"gcc",
+						"pthread",
+						"gcc",
+						"kernel32",
+						"moldname",
+						"mingwex",
+						"kernel32",
+						"pthread",
+						"advapi32",
+						"shell32",
+						"user32",
+						"kernel32",
+						"mingw32",
+						"gcc",
+						"pthread",
+						"gcc",
+						"kernel32",
+						"moldname",
+						"mingwex",
+						"kernel32"
+					]
+				},
+				"path" : "E:/GCC_CMake/TDM-GCC/bin/g++.exe",
+				"version" : "10.3.0"
+			},
+			"language" : "CXX",
+			"sourceFileExtensions" : 
+			[
+				"C",
+				"M",
+				"c++",
+				"cc",
+				"cpp",
+				"cxx",
+				"m",
+				"mm",
+				"mpp",
+				"CPP",
+				"ixx",
+				"cppm",
+				"ccm",
+				"cxxm",
+				"c++m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"implicit" : {},
+				"path" : "E:/GCC_CMake/TDM-GCC/bin/windres.exe"
+			},
+			"language" : "RC",
+			"sourceFileExtensions" : 
+			[
+				"rc",
+				"RC"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

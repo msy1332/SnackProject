@@ -1,0 +1,22 @@
+{
+    "editor.minimap.enabled": true,
+    "editor.minimap.showRegionSectionHeaders": true,
+    "editor.minimap.showMarkSectionHeaders": true,
+    "explorer.decorations.badges": false,
+    "explorer.decorations.colors": false,
+    "cmake.generator": "Ninja",// CMake 使用 ninja 作为默认生成器
+    "cmake.configureSettings": {
+    "CMAKE_MAKE_PROGRAM": "E:/GCC_CMake/Ninja/ninja.exe"//显式指定ninja.exe的路径
+    },
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "iostream": "cpp",
+        "cstdio": "cpp",
+        "stack": "cpp",
+        "vector": "cpp",
+        "xlocinfo": "cpp",
+        "xstring": "cpp",
+        "string": "cpp",
+        "ostream": "cpp"
+    } 
+}
