@@ -76,7 +76,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for SnackMain
 
-build cmake_object_order_depends_target_SnackMain: phony || cmake_object_order_depends_target_PutImage cmake_object_order_depends_target_Window
+build cmake_object_order_depends_target_SnackMain: phony || cmake_object_order_depends_target_PutImage
 
 build src/CMakeFiles/SnackMain.dir/SnackMain.cpp.obj: CXX_COMPILER__SnackMain_unscanned_Debug E$:/Programming/C++/SnackProject/src/SnackMain.cpp || cmake_object_order_depends_target_SnackMain
   CONFIG = Debug
@@ -93,11 +93,11 @@ build src/CMakeFiles/SnackMain.dir/SnackMain.cpp.obj: CXX_COMPILER__SnackMain_un
 #############################################
 # Link the executable E:\Programming\C++\SnackProject\bin\SnackMain.exe
 
-build E$:/Programming/C++/SnackProject/bin/SnackMain.exe: CXX_EXECUTABLE_LINKER__SnackMain_Debug src/CMakeFiles/SnackMain.dir/SnackMain.cpp.obj | src/Window/libWindow.dll.a src/PutImage/libPutImage.dll.a || E$:/Programming/C++/SnackProject/bin/libPutImage.dll E$:/Programming/C++/SnackProject/bin/libWindow.dll
+build E$:/Programming/C++/SnackProject/bin/SnackMain.exe: CXX_EXECUTABLE_LINKER__SnackMain_Debug src/CMakeFiles/SnackMain.dir/SnackMain.cpp.obj | src/PutImage/libPutImage.dll.a || E$:/Programming/C++/SnackProject/bin/libPutImage.dll
   CONFIG = Debug
   FLAGS = -g
   LINK_FLAGS = -mwindows
-  LINK_LIBRARIES = src/Window/libWindow.dll.a  src/PutImage/libPutImage.dll.a  -leasyx  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = src/PutImage/libPutImage.dll.a  -leasyx  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\CMakeFiles\SnackMain.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -128,72 +128,6 @@ build src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 
 build src/rebuild_cache: phony src/CMakeFiles/rebuild_cache.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# E:/Programming/C++/SnackProject/src/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for SHARED_LIBRARY target Window
-
-
-#############################################
-# Order-only phony target for Window
-
-build cmake_object_order_depends_target_Window: phony || .
-
-build src/Window/CMakeFiles/Window.dir/Window.cpp.obj: CXX_COMPILER__Window_unscanned_Debug E$:/Programming/C++/SnackProject/src/Window/Window.cpp || cmake_object_order_depends_target_Window
-  CONFIG = Debug
-  DEFINES = -DWindow_EXPORTS
-  DEP_FILE = src\Window\CMakeFiles\Window.dir\Window.cpp.obj.d
-  FLAGS = -g -std=gnu++17
-  OBJECT_DIR = src\Window\CMakeFiles\Window.dir
-  OBJECT_FILE_DIR = src\Window\CMakeFiles\Window.dir
-
-
-# =============================================================================
-# Link build statements for SHARED_LIBRARY target Window
-
-
-#############################################
-# Link the shared library E:\Programming\C++\SnackProject\bin\libWindow.dll
-
-build E$:/Programming/C++/SnackProject/bin/libWindow.dll src/Window/libWindow.dll.a: CXX_SHARED_LIBRARY_LINKER__Window_Debug src/Window/CMakeFiles/Window.dir/Window.cpp.obj
-  CONFIG = Debug
-  LANGUAGE_COMPILE_FLAGS = -g
-  LINK_LIBRARIES = -leasyx  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = src\Window\CMakeFiles\Window.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  RESTAT = 1
-  TARGET_FILE = E:\Programming\C++\SnackProject\bin\libWindow.dll
-  TARGET_IMPLIB = src\Window\libWindow.dll.a
-  TARGET_PDB = Window.dll.dbg
-
-
-#############################################
-# Utility command for edit_cache
-
-build src/Window/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D E:\Programming\C++\SnackProject\build\src\Window && E:\GCC_CMake\CMake\bin\cmake-gui.exe -SE:\Programming\C++\SnackProject -BE:\Programming\C++\SnackProject\build"
-  DESC = Running CMake cache editor...
-  pool = console
-  restat = 1
-
-build src/Window/edit_cache: phony src/Window/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build src/Window/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D E:\Programming\C++\SnackProject\build\src\Window && E:\GCC_CMake\CMake\bin\cmake.exe --regenerate-during-build -SE:\Programming\C++\SnackProject -BE:\Programming\C++\SnackProject\build"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build src/Window/rebuild_cache: phony src/Window/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -270,11 +204,7 @@ build SnackMain: phony E$:/Programming/C++/SnackProject/bin/SnackMain.exe
 
 build SnackMain.exe: phony E$:/Programming/C++/SnackProject/bin/SnackMain.exe
 
-build Window: phony E$:/Programming/C++/SnackProject/bin/libWindow.dll
-
 build libPutImage.dll: phony E$:/Programming/C++/SnackProject/bin/libPutImage.dll
-
-build libWindow.dll: phony E$:/Programming/C++/SnackProject/bin/libWindow.dll
 
 # =============================================================================
 # Folder targets.
@@ -291,7 +221,7 @@ build codegen: phony src/codegen
 #############################################
 # Folder: E:/Programming/C++/SnackProject/build/src
 
-build src/codegen: phony src/Window/codegen src/PutImage/codegen
+build src/codegen: phony src/PutImage/codegen
 
 # =============================================================================
 
@@ -299,13 +229,6 @@ build src/codegen: phony src/Window/codegen src/PutImage/codegen
 # Folder: E:/Programming/C++/SnackProject/build/src/PutImage
 
 build src/PutImage/codegen: phony
-
-# =============================================================================
-
-#############################################
-# Folder: E:/Programming/C++/SnackProject/build/src/Window
-
-build src/Window/codegen: phony
 
 # =============================================================================
 
@@ -319,7 +242,7 @@ build all: phony src/all
 #############################################
 # Folder: E:/Programming/C++/SnackProject/build/src
 
-build src/all: phony E$:/Programming/C++/SnackProject/bin/SnackMain.exe src/Window/all src/PutImage/all
+build src/all: phony E$:/Programming/C++/SnackProject/bin/SnackMain.exe src/PutImage/all
 
 # =============================================================================
 
@@ -329,27 +252,20 @@ build src/all: phony E$:/Programming/C++/SnackProject/bin/SnackMain.exe src/Wind
 build src/PutImage/all: phony E$:/Programming/C++/SnackProject/bin/libPutImage.dll
 
 # =============================================================================
-
-#############################################
-# Folder: E:/Programming/C++/SnackProject/build/src/Window
-
-build src/Window/all: phony E$:/Programming/C++/SnackProject/bin/libWindow.dll
-
-# =============================================================================
 # Built-in targets
 
 
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja E$:/Programming/C++/SnackProject/build/cmake_install.cmake E$:/Programming/C++/SnackProject/build/src/cmake_install.cmake E$:/Programming/C++/SnackProject/build/src/Window/cmake_install.cmake E$:/Programming/C++/SnackProject/build/src/PutImage/cmake_install.cmake: RERUN_CMAKE | CMakeCache.txt CMakeFiles/4.0.0-rc4/CMakeCCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeCXXCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeRCCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeSystem.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCXXInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCommonLanguageInclude.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeGenericSystem.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeInitializeConfigs.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeLanguageInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeRCInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInitialize.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCXXLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCommonLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-Initialize.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-windres.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/WindowsPaths.cmake E$:/Programming/C++/SnackProject/CMakeLists.txt E$:/Programming/C++/SnackProject/src/CMakeLists.txt E$:/Programming/C++/SnackProject/src/PutImage/CMakeLists.txt E$:/Programming/C++/SnackProject/src/Window/CMakeLists.txt
+build build.ninja E$:/Programming/C++/SnackProject/build/cmake_install.cmake E$:/Programming/C++/SnackProject/build/src/cmake_install.cmake E$:/Programming/C++/SnackProject/build/src/PutImage/cmake_install.cmake: RERUN_CMAKE | CMakeCache.txt CMakeFiles/4.0.0-rc4/CMakeCCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeCXXCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeRCCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeSystem.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCXXInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCommonLanguageInclude.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeGenericSystem.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeInitializeConfigs.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeLanguageInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeRCInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInitialize.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCXXLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCommonLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-Initialize.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-windres.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/WindowsPaths.cmake E$:/Programming/C++/SnackProject/CMakeLists.txt E$:/Programming/C++/SnackProject/src/CMakeLists.txt E$:/Programming/C++/SnackProject/src/PutImage/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build CMakeCache.txt CMakeFiles/4.0.0-rc4/CMakeCCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeCXXCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeRCCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeSystem.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCXXInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCommonLanguageInclude.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeGenericSystem.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeInitializeConfigs.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeLanguageInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeRCInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInitialize.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCXXLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCommonLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-Initialize.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-windres.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/WindowsPaths.cmake E$:/Programming/C++/SnackProject/CMakeLists.txt E$:/Programming/C++/SnackProject/src/CMakeLists.txt E$:/Programming/C++/SnackProject/src/PutImage/CMakeLists.txt E$:/Programming/C++/SnackProject/src/Window/CMakeLists.txt: phony
+build CMakeCache.txt CMakeFiles/4.0.0-rc4/CMakeCCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeCXXCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeRCCompiler.cmake CMakeFiles/4.0.0-rc4/CMakeSystem.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCXXInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeCommonLanguageInclude.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeGenericSystem.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeInitializeConfigs.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeLanguageInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeRCInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/CMakeSystemSpecificInitialize.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Compiler/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCXXLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Internal/CMakeCommonLinkerInformation.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Linker/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Linker/Windows-GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-C.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU-CXX.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-GNU.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-Initialize.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows-windres.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/Windows.cmake E$:/GCC_CMake/CMake/share/cmake-4.0/Modules/Platform/WindowsPaths.cmake E$:/Programming/C++/SnackProject/CMakeLists.txt E$:/Programming/C++/SnackProject/src/CMakeLists.txt E$:/Programming/C++/SnackProject/src/PutImage/CMakeLists.txt: phony
 
 
 #############################################

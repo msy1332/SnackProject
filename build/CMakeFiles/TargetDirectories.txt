@@ -3,9 +3,6 @@ E:/Programming/C++/SnackProject/build/CMakeFiles/rebuild_cache.dir
 E:/Programming/C++/SnackProject/build/src/CMakeFiles/SnackMain.dir
 E:/Programming/C++/SnackProject/build/src/CMakeFiles/edit_cache.dir
 E:/Programming/C++/SnackProject/build/src/CMakeFiles/rebuild_cache.dir
-E:/Programming/C++/SnackProject/build/src/Window/CMakeFiles/Window.dir
-E:/Programming/C++/SnackProject/build/src/Window/CMakeFiles/edit_cache.dir
-E:/Programming/C++/SnackProject/build/src/Window/CMakeFiles/rebuild_cache.dir
 E:/Programming/C++/SnackProject/build/src/PutImage/CMakeFiles/PutImage.dir
 E:/Programming/C++/SnackProject/build/src/PutImage/CMakeFiles/edit_cache.dir
 E:/Programming/C++/SnackProject/build/src/PutImage/CMakeFiles/rebuild_cache.dir

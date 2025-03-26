@@ -1,42 +1,26 @@
 #include <iostream>
-#include "Window/Window.h"
 #include "PutImage/PutImage.h"
 #include <windows.h>
+#include <easyx.h>
+#include <cstdio>
 using namespace std;
-
 int main()
 {
-    IMAGE BackDrop_Img;
-    IMAGE Test;
-    
-    Window window;
-    PutImage putimg;
-    window.Set_Window_Attribute(844,500,WHITE,EX_SHOWCONSOLE);
-    if(!window.Create_Window())
-    {
-        closegraph();
-        return -1;
-    }
-    window.Set_Bkcolor();
+    //创建窗口和设置背景颜色
+    initgraph(844,500,EX_SHOWCONSOLE);
+    setbkcolor(WHITE);
     cleardevice();
-    // if(loadimage(&BackDrop_Img,"../resources/Image/SnackBackdrop.jpg",844,500)==0)
-    // {
-    //     closegraph();
-    //     return -1;
-    // }
-    // putimage(0,0,&BackDrop_Img);
-    // if(loadimage(&Test,"../resources/Image/Original_drawing.png")==0)
-    // {
-    //     closegraph();
-    //     return -1;
-    // }
-    // putimg.Transparency_Map(0,0,&Test);
-    bool run=true;
-    cleardevice();
-    // while(run)
-    // {
 
-    // }
+    //加载背景图片和输出背景图片
+    IMAGE BackDrop_Img;
+    loadimage(&BackDrop_Img,"../resources/Image/SnackBackdrop.jpg",844,500);
+    putimage(0,0,&BackDrop_Img);
+
+    //测试透明贴图
+    PutImage Test;
+    IMAGE Test1;
+    loadimage(&Test1,"../resources/Image/enemy3_down3.png");
+    Test.Transparency_Map(-50,0,&Test1);
     system("pause");
     closegraph();
     return 0;

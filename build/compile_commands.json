@@ -7,12 +7,6 @@
 },
 {
   "directory": "E:/Programming/C++/SnackProject/build",
-  "command": "E:\\GCC_CMake\\TDM-GCC\\bin\\g++.exe -DWindow_EXPORTS -g -std=gnu++17 -o src\\Window\\CMakeFiles\\Window.dir\\Window.cpp.obj -c E:\\Programming\\C++\\SnackProject\\src\\Window\\Window.cpp",
-  "file": "E:\\Programming\\C++\\SnackProject\\src\\Window\\Window.cpp",
-  "output": "src\\Window\\CMakeFiles\\Window.dir\\Window.cpp.obj"
-},
-{
-  "directory": "E:/Programming/C++/SnackProject/build",
   "command": "E:\\GCC_CMake\\TDM-GCC\\bin\\g++.exe -DPutImage_EXPORTS -g -std=gnu++17 -o src\\PutImage\\CMakeFiles\\PutImage.dir\\PutImage.cpp.obj -c E:\\Programming\\C++\\SnackProject\\src\\PutImage\\PutImage.cpp",
   "file": "E:\\Programming\\C++\\SnackProject\\src\\PutImage\\PutImage.cpp",
   "output": "src\\PutImage\\CMakeFiles\\PutImage.dir\\PutImage.cpp.obj"
