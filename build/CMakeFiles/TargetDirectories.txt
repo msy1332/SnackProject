@@ -6,3 +6,6 @@ E:/Programming/C++/SnackProject/build/src/CMakeFiles/rebuild_cache.dir
 E:/Programming/C++/SnackProject/build/src/PutImage/CMakeFiles/PutImage.dir
 E:/Programming/C++/SnackProject/build/src/PutImage/CMakeFiles/edit_cache.dir
 E:/Programming/C++/SnackProject/build/src/PutImage/CMakeFiles/rebuild_cache.dir
+E:/Programming/C++/SnackProject/build/src/Snack/CMakeFiles/Snack.dir
+E:/Programming/C++/SnackProject/build/src/Snack/CMakeFiles/edit_cache.dir
+E:/Programming/C++/SnackProject/build/src/Snack/CMakeFiles/rebuild_cache.dir

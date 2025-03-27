@@ -1,5 +1,6 @@
 #include <iostream>
 #include "PutImage/PutImage.h"
+#include "Snack/Snack.h"
 #include <windows.h>
 #include <easyx.h>
 #include <cstdio>
@@ -39,6 +40,9 @@ int main()
 
     bool Game_Status=true;//游戏的运行状态
     bool Game_Start=false;//游戏的开始状态
+
+    Snack snack;
+    snack.Init_Snack();
 
     //游戏的主循环
     while(Game_Status)
@@ -148,7 +152,7 @@ int main()
         }
         else
         {
-            
+            snack.
         }
         EndBatchDraw();//结束双缓冲绘图
     }

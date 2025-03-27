@@ -3,6 +3,7 @@ project(SnackMain)
 
 #添加子目录
 add_subdirectory(PutImage)
+add_subdirectory(Snack)
 
 #添加可执行文件
 add_executable(${PROJECT_NAME} SnackMain.cpp)
@@ -14,11 +15,13 @@ set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE ON)
 target_include_directories(${PROJECT_NAME}
     PUBLIC
     ${PutImage_Dir}
+    ${Snack_Dir}
 )
 
 #链接贪吃蛇的主页面生成的动态库
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
     PutImage
+    Snack
     easyx
 )

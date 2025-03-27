@@ -14,4 +14,4 @@ add_subdirectory(src)#添加子目录
 
 #设置变量
 set(PutImage_Dir ${CMAKE_SOURCE_DIR}/src/PutImage)
-set(Button_Dir ${CMAKE_SOURCE_DIR}/src/Button)
+set(Snack_Dir ${CMAKE_SOURCE_DIR}/src/Snack)
