@@ -1,13 +1,83 @@
 #include <iostream>
 #include "PutImage/PutImage.h"
-#include "Snack/Snack.h"
+// #include "Snack/Snack.h"
 #include <windows.h>
 #include <easyx.h>
 #include <cstdio>
 #define Normal   1
 #define Hover    0
 #define Pressed -1
+#define up 65
+#define down 66
+#define left 67
+#define right 68
+struct SnackPlace
+{
+    int x;
+    int y;
+};
+struct Snack
+{
+    int Size;
+    int Speed;
+    int Head_X;
+    int Head_Y;
+    int Directions;
+    SnackPlace snack[100];
+}snack;
+
 using namespace std;
+void SnackInit()
+{
+    snack.Size=3;
+    snack.Head_X=100;
+    snack.Head_Y=100;
+    snack.Speed=300;
+    snack.Directions=right;
+    snack.snack[0].x=100;
+    snack.snack[0].y=100;
+    snack.snack[1].x=90;
+    snack.snack[1].y=100;
+    snack.snack[2].x=80;
+    snack.snack[2].y=100;
+}
+void SnackMove()
+{
+    for(int i=snack.Size-1;i>=0;i--)
+    {
+        snack.snack[i]=snack.snack[i-1];
+    }
+    snack.snack[0].x=snack.Head_X;
+    snack.snack[0].y=snack.Head_Y;
+}
+void JudgementDirections()
+{
+    switch(snack.Directions)
+    {
+        case up:
+            snack.Head_Y-=10;
+            break;
+        case down:
+            snack.Head_Y+=10;
+            break;
+        case left:
+            snack.Head_X-=10;
+            break;
+        case right:
+            snack.Head_X+=10;
+            break;
+    }
+}
+void DrawSnack()
+{
+    setfillcolor(RED);
+    setlinecolor(BLUE);
+    for(int i=0;i<snack.Size;i++)
+    {
+        fillrectangle(snack.snack[i].x,snack.snack[i].y,snack.snack[i].x+10,snack.snack[i].y+10);
+    }
+}
+
 int main()
 {
     //创建窗口和设置背景颜色
@@ -41,8 +111,10 @@ int main()
     bool Game_Status=true;//游戏的运行状态
     bool Game_Start=false;//游戏的开始状态
 
-    Snack snack;
-    snack.Init_Snack();
+    // Snack snack;
+    // snack.Init_Snack();
+
+    SnackInit();
 
     //游戏的主循环
     while(Game_Status)
@@ -58,13 +130,15 @@ int main()
                     case WM_LBUTTONDOWN:
                         if(msg.x>Button_X&&msg.x<Button_X+Button_Width&&msg.y>Button_Y&&msg.y<Button_Y+Button_Height)
                         {
+                            Game_Start=true;
+                            cleardevice();//清屏
+                            cout<<"Play"<<endl;
                             PlayText_Status=Pressed;
                         }
                         break;
                     case WM_LBUTTONUP:
                         if(msg.x>Button_X&&msg.x<Button_X+Button_Width&&msg.y>Button_Y&&msg.y<Button_Y+Button_Height)
                         {
-                            Game_Start=true;
                             PlayText_Status=Hover;
                         }
                         break;
@@ -90,19 +164,27 @@ int main()
                         {
                             case 'w':
                             case 'W':
+                                if(snack.Directions!=down)
+                                    snack.Directions=up;
                                 cout<<"W Press"<<endl;
                                 break;
                             case 's':
                             case 'S':
+                                if(snack.Directions!=up)
+                                        snack.Directions=down;
+                                cout<<"S Press"<<endl;
+                                break;
+                            case 'a':
+                            case 'A':
+                                if(snack.Directions!=right)
+                                        snack.Directions=left;
                                 cout<<"S Press"<<endl;
                                 break;
                             case 'd':
                             case 'D':
+                                if(snack.Directions!=left)
+                                        snack.Directions=right;
                                 cout<<"D Press"<<endl;
-                                break;
-                            case 'n':
-                            case 'N':
-                                cout<<"N Press"<<endl;
                                 break;
                         }
                         break;
@@ -117,13 +199,13 @@ int main()
                         case 'S':
                             cout<<"S Bounce UP"<<endl;
                             break;
+                        case 'a':
+                        case 'A':
+                            cout<<"A Bounce UP"<<endl;
+                            break;
                         case 'd':
                         case 'D':
                             cout<<"D Bounce UP"<<endl;
-                            break;
-                        case 'n':
-                        case 'N':
-                            cout<<"N Bounce UP"<<endl;
                             break;
                     }
                         break;
@@ -132,6 +214,7 @@ int main()
         }
         BeginBatchDraw();//开始双缓冲绘图
         cleardevice();//清屏
+        cout<<"cleardevice"<<endl;
         if(!Game_Start)//判断游戏是否开始游戏
         {
             if(PlayText_Status==Pressed)
@@ -152,7 +235,27 @@ int main()
         }
         else
         {
-            snack.
+            // setfillcolor(RED);
+            // setlinecolor(BLUE);
+            // // snack.DrawSnack();
+            // for(int i=0;i<snack.SnackSize;i++)
+            // {
+            //     fillrectangle(snack.snackxy[i].Snack_X,snack.snackxy[i].Snack_Y,snack.snackxy[i].Snack_X+10,snack.snackxy[i].Snack_Y+10);
+            // }
+            // snack.JudgementDirections();
+            // snack.SnackMove();
+            for(int i=0;i<snack.Size;i++)
+            {
+                cout<<"x:"<<snack.snack[i].x<<"\ty:"<<snack.snack[i].y<<"\ti:"<<i<<endl;
+            }
+            DrawSnack();
+            cout<<"DrawSnack"<<endl;
+            JudgementDirections();
+            cout<<"JudgementDirections"<<endl;
+            SnackMove();
+            cout<<"SnackMove"<<endl;
+            Sleep(snack.Speed);
+            cout<<"Sleep"<<endl;
         }
         EndBatchDraw();//结束双缓冲绘图
     }

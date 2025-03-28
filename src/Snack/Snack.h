@@ -8,12 +8,12 @@ struct SnackCoordinate
     int Snack_Y;
 };
 
-#define up=65;
-#define down=66;
-#define left=67;
-#define right=6;
+#define up 65
+#define down 66
+#define left 67
+#define right 6
 
-#define SnackMaxSize 100;
+#define SnackMaxSize 100
 
 class Snack
 {
@@ -25,9 +25,12 @@ class Snack
         void JudgementDirections();
         void SnackMove();
         int SnackDirections;
-    private:
+        int Head_X;
+        int Head_Y;
         int speed=500;
         int SnackSize;
         SnackCoordinate snackxy[SnackMaxSize];
+    private:
+        
     protected:
-}
+};

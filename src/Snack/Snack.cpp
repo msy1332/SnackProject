@@ -12,8 +12,9 @@ Snack::~Snack()
 
 void Snack::Init_Snack()
 {
-    this->SnackMaxSize=100;
     this->SnackSize=3;
+    this->Head_X=100;
+    this->Head_Y=100;
     this->SnackDirections=right;
     this->snackxy[0].Snack_X=100;
     this->snackxy[0].Snack_Y=100;
@@ -36,16 +37,16 @@ void Snack::JudgementDirections()
     switch(this->SnackDirections)
     {
         case up:
-            snackxy[0].Snack_Y+=10;
+            Head_Y-=10;
             break;
-        caes down:
-            snackxy[0].Snack_Y-=10;
+        case down:
+            Head_Y+=10;
             break;
         case left:
-            snackxy[0].Snack_X-=10;
+            Head_X-=10;
             break;
         case right:
-            snackxy[0].Snack_X+=10;
+            Head_X+=10;
             break;
     }
 }
@@ -54,6 +55,8 @@ void Snack::SnackMove()
 {
     for(int i=1;i<SnackSize;i++)
     {
-        Snackxy[i]=Snackxy[i-1];
+        snackxy[i]=snackxy[i-1];
     }
+    snackxy[0].Snack_X=Head_X;
+    snackxy[0].Snack_Y=Head_Y;
 }
