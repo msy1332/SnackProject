@@ -1,9 +1,9 @@
 #指定工程名
-project(Snack)
+project(Snake)
 
 add_library(${PROJECT_NAME}
     SHARED
-    Snack.cpp
+    Snake.cpp
 )
 
 #链接easyx库

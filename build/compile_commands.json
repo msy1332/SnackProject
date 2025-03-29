@@ -13,8 +13,14 @@
 },
 {
   "directory": "E:/Programming/C++/SnackProject/build",
-  "command": "E:\\GCC_CMake\\TDM-GCC\\bin\\g++.exe -DSnack_EXPORTS -g -std=gnu++17 -o src\\Snack\\CMakeFiles\\Snack.dir\\Snack.cpp.obj -c E:\\Programming\\C++\\SnackProject\\src\\Snack\\Snack.cpp",
-  "file": "E:\\Programming\\C++\\SnackProject\\src\\Snack\\Snack.cpp",
-  "output": "src\\Snack\\CMakeFiles\\Snack.dir\\Snack.cpp.obj"
+  "command": "E:\\GCC_CMake\\TDM-GCC\\bin\\g++.exe -DSnake_EXPORTS -g -std=gnu++17 -o src\\Snake\\CMakeFiles\\Snake.dir\\Snake.cpp.obj -c E:\\Programming\\C++\\SnackProject\\src\\Snake\\Snake.cpp",
+  "file": "E:\\Programming\\C++\\SnackProject\\src\\Snake\\Snake.cpp",
+  "output": "src\\Snake\\CMakeFiles\\Snake.dir\\Snake.cpp.obj"
+},
+{
+  "directory": "E:/Programming/C++/SnackProject/build",
+  "command": "E:\\GCC_CMake\\TDM-GCC\\bin\\g++.exe -DFood_EXPORTS -g -std=gnu++17 -o src\\Food\\CMakeFiles\\Food.dir\\Food.cpp.obj -c E:\\Programming\\C++\\SnackProject\\src\\Food\\Food.cpp",
+  "file": "E:\\Programming\\C++\\SnackProject\\src\\Food\\Food.cpp",
+  "output": "src\\Food\\CMakeFiles\\Food.dir\\Food.cpp.obj"
 }
 ]
