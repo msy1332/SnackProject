@@ -5,6 +5,7 @@ project(SnackMain)
 add_subdirectory(PutImage)
 add_subdirectory(Snake)
 add_subdirectory(Food)
+add_subdirectory(Game)
 
 #添加可执行文件
 add_executable(${PROJECT_NAME} SnackMain.cpp)
@@ -18,6 +19,7 @@ target_include_directories(${PROJECT_NAME}
     ${PutImage_Dir}
     ${Snake_Dir}
     ${Food_Dir}
+    ${Game_Dir}
 )
 
 #链接贪吃蛇的主页面生成的动态库
@@ -27,4 +29,6 @@ target_link_libraries(${PROJECT_NAME}
     Snake
     Food
     easyx
+    Game
+    Winmm
 )

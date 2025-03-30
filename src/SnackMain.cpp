@@ -331,13 +331,17 @@ int main()
 */
 #include "PutImage/PutImage.h"
 #include "Snake/Snake.h"
+#include "Game/Game.h"
 #include "Food/Food.h"
 #include <windows.h>
+#include <mmsystem.h>
 #include <iostream>
 #include <easyx.h>
 #include <cstring>
 #include <string>
 #include <time.h>
+#include <cmath>
+#pragma comment(lib,"Winmm.lib")
 using namespace std;
 IMAGE ButtonImage[3];
 struct Button
@@ -375,6 +379,12 @@ enum ButtonStatus{
     Pressed =2
 };
 
+enum GameStatus{
+    Menu       =0,
+    BeginGame  =1,
+    EndGame    =2
+};
+
 int main()
 {
     //创建窗口
@@ -387,6 +397,10 @@ int main()
     loadimage(&BackImage,"../resources/Image/BackImage.png");
     putimage(0,0,&BackImage);
 
+    //加载结束图片
+    IMAGE EndImage;
+    loadimage(&EndImage,"../resources/Image/GameOver.png");
+
     //加载按钮图片
     Init_Button();
     putimage(312,380,&ButtonImage[0]);
@@ -398,23 +412,35 @@ int main()
     ExMessage msg;
 
     bool Game_Status=true;//游戏的运行状态
-    bool Game_Start=false;//游戏的开始状态
+    int Game_Start=Menu;//游戏的开始状态
     int Button_Status=Normal;
 
     Snake snake;
     Food food;
-
+    Game game;
     //初始化蛇
     snake.Init_Snake();
     food.Init_Food();
 
+    int Fps=16/1000;
+    int StartTime=0;
+    int StopTime=0;
+    int Timepiece=0;
+    int LastTimeMove=clock();
+
+    mciSendString("open ../resources/Music/SnakeBgm.mp3 alias bgm",NULL,0,NULL);
+    mciSendString("open ../resources/Music/j57gx-hru1n.mp3 alias bgm1",NULL,0,NULL);
+    int MusicStatus=0;
+
+    char Scorestring[50]="";
+
     //游戏的主循环
     while(Game_Status)
     {
-        // StartTime=clock();
+        StartTime=clock();
         if(peekmessage(&msg,EX_MOUSE | EX_KEY))
         {
-            if(!Game_Start)
+            if(Game_Start==Menu)
             {
                 switch(msg.message)
                 {
@@ -423,6 +449,7 @@ int main()
                         {
                             Button_Status=Pressed;
                             Game_Start=true;
+                            mciSendString("play bgm repeat",NULL,0,NULL);
                             cleardevice();
                         }
                         break;
@@ -435,27 +462,55 @@ int main()
                         break;
                 }
             }
+            else if(Game_Status==BeginGame)
+            {
+                switch(msg.message)
+                {
+                    case WM_KEYDOWN:
+                        switch(msg.vkcode)
+                        {
+                            case 'w':
+                            case 'W':
+                            case VK_UP:
+                                if(snake.Direction!=Down)   snake.Direction=Up;
+                                cout<<"W"<<endl;
+                                break;
+                            case 's':
+                            case 'S':
+                            case VK_DOWN:
+                                cout<<"S"<<endl;
+                                if(snake.Direction!=Up)   snake.Direction=Down;
+                                break;
+                            case 'a':
+                            case 'A':
+                            case VK_LEFT:
+                                cout<<"A"<<endl;
+                                if(snake.Direction!=Right)   snake.Direction=Left;
+                                break;
+                            case 'd':
+                            case 'D':
+                            case VK_RIGHT:
+                                cout<<"D"<<endl;
+                                if(snake.Direction!=Left)   snake.Direction=Right;
+                                break;  
+                            case VK_SPACE:
+                                if(MusicStatus==0)
+                                {
+                                    mciSendString("play bgm1 repeat",NULL,0,NULL);
+                                    MusicStatus=1;  
+                                }
+                                else
+                                {
+                                    mciSendString("stop bgm1",NULL,0,NULL);    
+                                    MusicStatus=0;
+                                }                       
+                        }
+                    break;
+                }
+            }
             else
             {
-                switch(msg.vkcode)
-                {
-                    case 'w':
-                    case 'W':
-                    case VK_UP:
-                        break;
-                    case 's':
-                    case 'S':
-                    case VK_DOWN:
-                        break;
-                    case 'a':
-                    case 'A':
-                    case VK_LEFT:
-                        break;
-                    case 'd':
-                    case 'D':
-                    case VK_RIGHT:
-                        break;                
-                }
+
             }
         }
         BeginBatchDraw();
@@ -480,11 +535,54 @@ int main()
         }
         else
         {
-            snake.Judgment_Snake_Direction();
-            snake.Move_Snake();
-            snake.Draw_Snake();
+            food.Generate_Food(snake);
+            setfillcolor(RGB(32, 172, 74));
+            for(int i=0;i<snake.Size;i++)
+            {
+                solidroundrect(snake.Snakexy[i].x,snake.Snakexy[i].y,snake.Snakexy[i].x+10,snake.Snakexy[i].y+10,10,10);
+            }
+            setfillcolor(RED);
+            solidcircle(food.Foodxy.x+5,food.Foodxy.y+5,5); 
+            // food.Eat_Food(snake);
+            for(int i=0;i<snake.Size;i++)
+            {
+                cout<<"x:"<<snake.Snakexy[i].x<<"\ty:"<<snake.Snakexy[i].y<<"\ti:"<<i<<"\tsize:"<<snake.Size<<"\tfoodx:"<<food.Foodxy.x<<"\tfoody:"<<food.Foodxy.y<<"\tspeed:"<<snake.Speed<<endl;
+            }
+            if(snake.Head_X==food.Foodxy.x&&snake.Head_Y==food.Foodxy.y)
+            {
+                food.flag=0;
+                snake.Speed=max(10,snake.Speed-=100);
+                snake.Size++;
+                snake.Score+=50;
+            }
+            if(game.Game_End(snake))
+            {
+                Init_Button();
+                snake.Init_Snake();
+                Game_Start=false;
+                Button_Status=Normal;
+                mciSendString("stop bgm",NULL,0,NULL);
+            }
+            sprintf(Scorestring,"score:%d",snake.Score);
+            settextcolor(BLACK);
+            outtextxy(0,0,Scorestring);
         }
         EndBatchDraw();
+        if(Game_Status==BeginGame)
+        {
+            Timepiece=clock();
+            if(Timepiece-LastTimeMove>=snake.Speed) 
+            {
+                snake.Judgment_Snake_Direction();
+                snake.Move_Snake();
+                LastTimeMove=Timepiece;
+            }
+        }
+        StopTime=clock();
+        if(StopTime-StartTime<Fps)
+        {
+            Sleep(Fps-StopTime-StartTime);
+        }
     }
 
     system("pause");

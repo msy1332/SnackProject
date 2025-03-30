@@ -1,5 +1,6 @@
 #include <iostream>
 #include <easyx.h>
+#include <cmath>
 #pragma once
 
 #define Snake_Size_Mux 100

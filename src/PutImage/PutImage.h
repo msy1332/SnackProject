@@ -1,7 +1,10 @@
-#include <easyx.h>
+
 #include <iostream>
 #include <windows.h>
+#include <easyx.h>
 #include <cmath>
+
+#pragma once
 
 class PutImage
 {

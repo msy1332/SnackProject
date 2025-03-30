@@ -5,7 +5,8 @@
 		"E:/Programming/C++/SnackProject/build/src/cmake_install.cmake",
 		"E:/Programming/C++/SnackProject/build/src/PutImage/cmake_install.cmake",
 		"E:/Programming/C++/SnackProject/build/src/Snake/cmake_install.cmake",
-		"E:/Programming/C++/SnackProject/build/src/Food/cmake_install.cmake"
+		"E:/Programming/C++/SnackProject/build/src/Food/cmake_install.cmake",
+		"E:/Programming/C++/SnackProject/build/src/Game/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

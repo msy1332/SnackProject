@@ -23,8 +23,8 @@ CMAKE_AR:FILEPATH=E:/GCC_CMake/TDM-GCC/bin/ar.exe
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
 
-//CXX compiler
-CMAKE_CXX_COMPILER:STRING=E:/GCC_CMake/TDM-GCC/bin/g++.exe
+//No help, variable specified on the command line.
+CMAKE_CXX_COMPILER:FILEPATH=E:/GCC_CMake/TDM-GCC/bin/g++.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -52,8 +52,8 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 //Libraries linked by default with all C++ applications.
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
 
-//C compiler
-CMAKE_C_COMPILER:STRING=E:/GCC_CMake/TDM-GCC/bin/gcc.exe
+//No help, variable specified on the command line.
+CMAKE_C_COMPILER:FILEPATH=E:/GCC_CMake/TDM-GCC/bin/gcc.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -266,6 +266,15 @@ Food_IS_TOP_LEVEL:STATIC=OFF
 Food_SOURCE_DIR:STATIC=E:/Programming/C++/SnackProject/src/Food
 
 //Value Computed by CMake
+Game_BINARY_DIR:STATIC=E:/Programming/C++/SnackProject/build/src/Game
+
+//Value Computed by CMake
+Game_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Game_SOURCE_DIR:STATIC=E:/Programming/C++/SnackProject/src/Game
+
+//Value Computed by CMake
 PutImage_BINARY_DIR:STATIC=E:/Programming/C++/SnackProject/build/src/PutImage
 
 //Value Computed by CMake
@@ -408,7 +417,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

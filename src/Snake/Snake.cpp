@@ -47,7 +47,7 @@ void Snake::Judgment_Snake_Direction()
 
 void Snake::Move_Snake()
 {
-    for(int i=Size-1;i>=0;i--)
+    for(int i=Size-1;i>0;i--)
     {
         Snakexy[i]=Snakexy[i-1];
     }

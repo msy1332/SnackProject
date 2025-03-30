@@ -22,5 +22,11 @@
   "command": "E:\\GCC_CMake\\TDM-GCC\\bin\\g++.exe -DFood_EXPORTS -g -std=gnu++17 -o src\\Food\\CMakeFiles\\Food.dir\\Food.cpp.obj -c E:\\Programming\\C++\\SnackProject\\src\\Food\\Food.cpp",
   "file": "E:\\Programming\\C++\\SnackProject\\src\\Food\\Food.cpp",
   "output": "src\\Food\\CMakeFiles\\Food.dir\\Food.cpp.obj"
+},
+{
+  "directory": "E:/Programming/C++/SnackProject/build",
+  "command": "E:\\GCC_CMake\\TDM-GCC\\bin\\g++.exe -DGame_EXPORTS -g -std=gnu++17 -o src\\Game\\CMakeFiles\\Game.dir\\Game.cpp.obj -c E:\\Programming\\C++\\SnackProject\\src\\Game\\Game.cpp",
+  "file": "E:\\Programming\\C++\\SnackProject\\src\\Game\\Game.cpp",
+  "output": "src\\Game\\CMakeFiles\\Game.dir\\Game.cpp.obj"
 }
 ]

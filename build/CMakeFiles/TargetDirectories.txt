@@ -12,3 +12,6 @@ E:/Programming/C++/SnackProject/build/src/Snake/CMakeFiles/rebuild_cache.dir
 E:/Programming/C++/SnackProject/build/src/Food/CMakeFiles/Food.dir
 E:/Programming/C++/SnackProject/build/src/Food/CMakeFiles/edit_cache.dir
 E:/Programming/C++/SnackProject/build/src/Food/CMakeFiles/rebuild_cache.dir
+E:/Programming/C++/SnackProject/build/src/Game/CMakeFiles/Game.dir
+E:/Programming/C++/SnackProject/build/src/Game/CMakeFiles/edit_cache.dir
+E:/Programming/C++/SnackProject/build/src/Game/CMakeFiles/rebuild_cache.dir

@@ -2,6 +2,9 @@
 #include <iostream>
 #include <easyx.h>
 #include <time.h>
+#pragma once
+
+#define Food_Max 100
 
 struct Food_Position
 {
@@ -14,12 +17,14 @@ class Food
     public:
         Food();
         ~Food();
-        void Init_Food();
-        void Draw_Food();
-        void Generate_Food(Snake snake);
-    private:
         int number;
         int flag;
+        void Init_Food();
+        void Draw_Food();
+        void Eat_Food(Snake snake);
         Food_Position Foodxy;
+        void Generate_Food(Snake snake1); 
+    private:
+        // Food_Position Foodxy[Food_Max];
     protected:
 };
