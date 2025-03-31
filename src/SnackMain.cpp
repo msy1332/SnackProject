@@ -411,9 +411,10 @@ int main()
     //定义鼠标消息
     ExMessage msg;
 
-    bool Game_Status=true;//游戏的运行状态
+    int Game_Status=Menu;//游戏的运行状态
     int Game_Start=Menu;//游戏的开始状态
     int Button_Status=Normal;
+    bool Running=true;
 
     Snake snake;
     Food food;
@@ -435,12 +436,12 @@ int main()
     char Scorestring[50]="";
 
     //游戏的主循环
-    while(Game_Status)
+    while(Running)
     {
         StartTime=clock();
         if(peekmessage(&msg,EX_MOUSE | EX_KEY))
         {
-            if(Game_Start==Menu)
+            if(Game_Status==Menu)
             {
                 switch(msg.message)
                 {
@@ -448,7 +449,8 @@ int main()
                         if(Button_Judgement(msg)) 
                         {
                             Button_Status=Pressed;
-                            Game_Start=true;
+                            Game_Status=BeginGame;
+                            snake.Init_Snake();
                             mciSendString("play bgm repeat",NULL,0,NULL);
                             cleardevice();
                         }
@@ -510,12 +512,30 @@ int main()
             }
             else
             {
-
+                switch(msg.message)
+                {
+                    case WM_KEYDOWN:
+                        switch(msg.vkcode)
+                        {
+                            case VK_ESCAPE:
+                                Init_Button();
+                                Button_Status=Normal;
+                                Game_Status=Menu;
+                                break;
+                            case 'R':
+                            case 'r':
+                                snake.Init_Snake();
+                                Game_Status=BeginGame;
+                                mciSendString("play bgm repeat",NULL,0,NULL);
+                                break;
+                        }
+                        break;
+                }
             }
         }
         BeginBatchDraw();
         cleardevice();
-        if(!Game_Start)
+        if(Game_Status==Menu)
         {
             if(Button_Status==Pressed) 
             {
@@ -533,7 +553,7 @@ int main()
                 put_image.Transparency_Map(button.Button_X,button.Button_Y,&ButtonImage[0]);
             }
         }
-        else
+        else if(Game_Status==BeginGame)
         {
             food.Generate_Food(snake);
             setfillcolor(RGB(32, 172, 74));
@@ -557,15 +577,23 @@ int main()
             }
             if(game.Game_End(snake))
             {
-                Init_Button();
-                snake.Init_Snake();
-                Game_Start=false;
-                Button_Status=Normal;
+                Game_Status=EndGame;
                 mciSendString("stop bgm",NULL,0,NULL);
             }
             sprintf(Scorestring,"score:%d",snake.Score);
             settextcolor(BLACK);
             outtextxy(0,0,Scorestring);
+        }
+        else
+        {
+            put_image.Transparency_Map(0,0,&EndImage);
+            setfillcolor(RGB(32, 172, 74));
+            for(int i=0;i<snake.Size;i++)
+            {
+                solidroundrect(snake.Snakexy[i].x,snake.Snakexy[i].y,snake.Snakexy[i].x+10,snake.Snakexy[i].y+10,10,10);
+            }
+            setfillcolor(RED);
+            solidcircle(food.Foodxy.x+5,food.Foodxy.y+5,5); 
         }
         EndBatchDraw();
         if(Game_Status==BeginGame)
